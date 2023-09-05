@@ -32,7 +32,7 @@ func LiveScanWarp(liveScan func(hosts []string, speed int, count int) []string) 
 	pingNumInput := widget.NewSelectEntry(pingList)
 	pingNumInput.SetText("2")
 
-	speedBox := container.NewGridWithColumns(4, speedLabel, speedInput, pingLabel, pingNumInput)
+	speedBox := container.NewGridWithColumns(5, statusLabel, speedLabel, speedInput, pingLabel, pingNumInput)
 
 	startPortScan := widget.NewButton("Run", func() {
 		ips, _ := ipList.Get()
@@ -59,11 +59,37 @@ func LiveScanWarp(liveScan func(hosts []string, speed int, count int) []string) 
 		fl4g = 1
 	})
 
+	exportTypes := []string{"TXT", "JSON"}
+	exportTypeInput := widget.NewSelectEntry(exportTypes)
+	exportTypeInput.SetText("TXT")
+	exportButton := widget.NewButton("Export", func() {
+		exportType := exportTypeInput.Text
+		result, _ := resultList.Get()
+		switch exportType {
+		case "TXT":
+			f1ag := exportToTXT(result)
+			if f1ag {
+				statusLabel.SetText("Export succeed")
+			} else {
+				statusLabel.SetText("Export error")
+			}
+		case "JSON":
+			f1ag := exportToJSON(result)
+			if f1ag {
+				statusLabel.SetText("Export succeed")
+			} else {
+				statusLabel.SetText("Export error")
+			}
+		}
+	})
+	exportBox := container.NewGridWithColumns(2, exportButton, exportTypeInput)
+
 	resultHandle := container.NewVBox()
 	resultHandle.Add(speedBox)
-	resultHandle.Add(statusLabel)
 	resultHandle.Add(myNewLine())
 	resultHandle.Add(startPortScan)
+	resultHandle.Add(myNewLine())
+	resultHandle.Add(exportBox)
 	resultBox := container.NewBorder(
 		myNewLine(),
 		container.NewBorder(myNewLine(), myNewLine(), myNewLine(), myNewLine(), resultHandle),
