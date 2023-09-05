@@ -4,9 +4,9 @@
 # 效果展示
 
 ## 端口扫描
-![PortScan](https://github.com/LeafBackAut/TomatoScan/assets/107784402/dcce5cc7-101c-4fe7-a169-62663e5b8a13)
+![PortScan1 1](https://github.com/LeafBackAut/TomatoScan/assets/107784402/c29fa3b2-d708-425a-a511-7b6f5733dbcf)
 
 ## 主机扫描
-![LiveScan](https://github.com/LeafBackAut/TomatoScan/assets/107784402/1d86ed72-bd21-44ce-ab41-5d7707916d56)
+![LiveScan1 1](https://github.com/LeafBackAut/TomatoScan/assets/107784402/bb15b0d2-892e-4a0b-8456-3d4bc0b2d1eb)
 
 Tip：速度是基于goroutine数，扫描目标较少或指定端口较少可以将speed选项调低。主机存活扫描的PingNum越大，准确性越高。
