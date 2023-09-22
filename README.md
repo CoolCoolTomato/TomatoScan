@@ -9,4 +9,4 @@
 ## 主机扫描
 ![](https://github.com/LeafBackAut/TomatoScan/assets/107784402/b46f4a5c-4621-4bda-baeb-1759e47cfedb)
 
-Tip：速度是基于goroutine数，扫描目标较少或指定端口较少可以将speed选项调低。
+Tip：速度是基于goroutine数。
