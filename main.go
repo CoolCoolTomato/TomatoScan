@@ -1,6 +1,8 @@
 package main
 
-import "tomatoscan/gui"
+import (
+	"tomatoscan/gui"
+)
 
 func main() {
 	gui.MainWindow()

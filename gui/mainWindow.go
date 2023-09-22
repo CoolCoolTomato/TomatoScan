@@ -1,9 +1,9 @@
 package gui
 
 import (
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
-	"tomatoscan/scanner"
 )
 
 func MainWindow() {
@@ -12,8 +12,8 @@ func MainWindow() {
 
 	mainBox := container.NewMax()
 
-	portscan := PortScanWarp(scanner.PortScan)
-	livescan := LiveScanWarp(scanner.LiveScan)
+	portscan := PortScanBox()
+	livescan := LiveScanBox()
 
 	tabs := container.NewAppTabs(
 		container.NewTabItem("portscan", portscan),
@@ -24,6 +24,11 @@ func MainWindow() {
 
 	Window.SetContent(mainBox)
 
+	Window.Resize(fyne.Size{
+		Width:  1200,
+		Height: 700,
+	})
 	Window.Show()
+	//App.Settings().SetTheme(theme.LightTheme())
 	App.Run()
 }
